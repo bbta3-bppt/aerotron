@@ -15,7 +15,7 @@ jobs:
 
       - name: Init Directory
         run: |
-          mkdir aerobro
+          mkdir aerotron
 
       - name: Install NodeJS
         uses: actions/setup-node@v2
@@ -47,66 +47,8 @@ jobs:
           quasar build
           cp -r dist/spa/* ../aerotron
 
-      - name: Install Rust Toolchain
-        uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
-
       - name: Make Build Main Env.
         run: |
           cat > .env << ENDOFFILE
           DATABASE_URL=${{ secrets.DATABASE_URL }}
           ENDOFFILE
-
-      - name: Build Worker Using Cargo
-        uses: actions-rs/cargo@v1
-        with:
-          command: build
-          args: --release
-
-      - name: Move to aerotron Directory
-        run: |
-          mv target/release/aerotron aerotron/
-          mv proc/ aerotron/
-          ls aerotron/
-
-  deploy_aerotron_ui:
-    name: Deploy aerotron UI
-    needs: upload_aerotron
-    runs-on: ubuntu-20.04
-    steps:
-      - name: Make Main Env.
-        run: |
-          cat > aerotron/.env << ENDOFFILE
-          MQTT_ADDR=${{ secrets.MQTT_ADDR }}
-          MQTT_USER=${{ secrets.MQTT_USER }}
-          MQTT_PWD=${{ secrets.MQTT_PWD }}
-          MSG_TOPIC=${{ secrets.MSG_TOPIC }}
-          APP_PORT=3000
-          DATABASE_URL=${{ secrets.DATABASE_URL }}
-          ENDOFFILE
-
-      - name: Make Proc. Env.
-        run: |
-          cat > aerotron/proc/.env << ENDOFFILE
-          STREAM_ADDRESS=${{ secrets.WS_ADDRESS }}
-          ACC_THRESHOLD_MIN=0.4
-          ACC_THRESHOLD_MAX=0.7
-          STRAIN_THRESHOLD_MIN=0.4
-          STRAIN_THRESHOLD_MAX=0.7
-          DISP_THRESHOLD_MIN=3.0
-          DISP_THRESHOLD_MAX=3.5
-          DB_HOST=${{ secrets.DB_HOST }}
-          DB_PORT=${{ secrets.DB_PORT }}
-          DB_NAME=${{ secrets.DB_NAME }}
-          DB_USER=${{ secrets.DB_USER }}
-          DB_PASSWORD=${{ secrets.DB_PASSWORD }}
-          ENDOFFILE
-
-      - name: Cleaning Up
-        run: |
-          rm Cargo.lock Cargo.toml
-          rm -rf src target ui
-          mv aerotron/ aerotrons/
-          mv aerotrons/* .
-          rm -rf aerotrons/
