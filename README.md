@@ -5,3 +5,14 @@ Pengembangan riset Aerotron ini bertujuan:
 * Informasi jadwal pelaksanaan perawatan fasilitas pengujian dan status pelaksanaan dapat diakses dengan mudah oleh pegawai di Unit Kerja sehingga dapat diketahui kondisi terkini dari fasilitas pengujian.
 * Meminimalisir terlewatnya pelaksanaan perawatan fasilitas pengujian
 * Tersedianya salah satu acuan informasi apabila terjadi permasalahan pada sistem fasilitas pengujian
+
+Persiapkan .env di root direkstori aplikasi ini berupa: (menggunakan PostgreSQL database)
+```text
+DEBUG=dev
+SECRET_KEY=SALTKEY
+DB_USERNAME=dbuser
+DB_PASSWORD=dbpwd
+DB_NAME=dbname
+DB_HOST=localhost
+DB_PORT=5432
+```
