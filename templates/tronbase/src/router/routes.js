@@ -24,6 +24,14 @@ const routes = [
     ]
   },
 
+  {
+    path: '/masuk',
+    component: () => import('layouts/OtenLayout/OtenLayout.vue'),
+    children: [
+      { path: '', component: () => import('pages/oten/otentikasi.vue') }
+    ]
+  },
+
   // Always leave this as last one,
   // but you can also remove it
   {
