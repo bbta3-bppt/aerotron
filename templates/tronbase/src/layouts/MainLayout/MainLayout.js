@@ -1,24 +1,24 @@
-import EssentialLink from 'components/EssentialLink.vue'
+import EssentialLink from 'components/PilihanAplikasi/PilihanAplikasi.vue'
 import { defineComponent, ref } from 'vue'
 
 const linksList = [
   {
     title: 'Perawatan',
-    caption: 'Jadwal Peralatan',
-    icon: 'eva-briefcase-outline',
-    link: ''
+    caption: 'Jadwal Perawatan',
+    icon: 'bi-calendar-week',
+    link: '/'
   },
   {
     title: 'Stok',
     caption: 'Stok Peralatan',
-    icon: 'eva-archive-outline',
-    link: ''
+    icon: 'bi-cart4',
+    link: '/stok'
   },
   {
     title: 'Pengujian',
     caption: 'Jadwal Pengujian',
-    icon: 'eva-navigation-2-outline',
-    link: ''
+    icon: 'bi-cursor',
+    link: '/pengujian'
   }
 ];
 
