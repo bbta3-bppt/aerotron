@@ -7,15 +7,11 @@ on:
 
 jobs:
   upload_aerobro:
-    name: Upload Aplikasi Aerobro
+    name: Upload Aplikasi Aerotron
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout Latest Version
         uses: actions/checkout@v2
-
-      - name: Init Directory
-        run: |
-          mkdir aerotron
 
       - name: Install NodeJS
         uses: actions/setup-node@v2
@@ -32,8 +28,7 @@ jobs:
 
       - name: Build UI
         run: |
-          mkdir aerotron/spa
-          cd ui
+          cd templates/tronbase
           cat > .env << ENDOFFILE
           STREAM_ADDRESS=${{ secrets.STREAM_ADDRESS }}
           ACC_THRESHOLD_MIN=0.3
@@ -45,10 +40,3 @@ jobs:
           REPO_NAME=aerotron
           ENDOFFILE
           quasar build
-          cp -r dist/spa/* ../aerotron
-
-      - name: Make Build Main Env.
-        run: |
-          cat > .env << ENDOFFILE
-          DATABASE_URL=${{ secrets.DATABASE_URL }}
-          ENDOFFILE
