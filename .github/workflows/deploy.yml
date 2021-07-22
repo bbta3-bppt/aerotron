@@ -20,7 +20,7 @@ jobs:
 
       - name: Check and Install Dependencies
         run: |
-          cd ui
+          cd templates/tronbase
           node -v
           npm -v
           npm install
