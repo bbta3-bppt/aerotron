@@ -4,7 +4,13 @@ const routes = [
     path: '/',
     component: () => import('layouts/MainLayout/MainLayout.vue'),
     children: [
-      { path: '', component: () => import('pages/perawatan/perawatan.vue') }
+      { path: '', component: () => import('pages/perawatan/perawatan.vue') },
+      { path: 'dokumentasiILST', component: () => import('pages/perawatan/dokumentasi/dokumentasiILST.vue') },
+      { path: 'dokumentasiIWET', component: () => import('pages/perawatan/dokumentasi/dokumentasiIWET.vue') },
+      { path: 'dokumentasiESWT', component: () => import('pages/perawatan/dokumentasi/dokumentasiESWT.vue') },
+      { path: 'dokumentasiAREAS', component: () => import('pages/perawatan/dokumentasi/dokumentasiAREAS.vue') },
+      { path: 'dokumentasiVIENTA', component: () => import('pages/perawatan/dokumentasi/dokumentasiVIENTA.vue') },
+      { path: 'dokumentasiPenunjang', component: () => import('pages/perawatan/dokumentasi/dokumentasiPenunjang.vue') },
     ]
   },
 
