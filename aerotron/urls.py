@@ -16,8 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from aerotron.views import AerotronView
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path("", AerotronView.as_view()),
+    path('aeromin/', admin.site.urls),
     path('oten/', include('oten.urls')),
     path('perawatan/', include('perawatan.urls')),
 ]
