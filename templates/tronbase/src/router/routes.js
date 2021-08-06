@@ -2,6 +2,7 @@
 const routes = [
   {
     path: '/',
+    meta: { kunci: true },
     component: () => import('layouts/MainLayout/MainLayout.vue'),
     children: [
       { path: '', component: () => import('pages/perawatan/perawatan.vue') },
@@ -16,6 +17,7 @@ const routes = [
 
   {
     path: '/stok',
+    meta: { kunci: true },
     component: () => import('layouts/MainLayout/MainLayout.vue'),
     children: [
       { path: '', component: () => import('pages/stok/stok.vue') }
@@ -24,6 +26,7 @@ const routes = [
 
   {
     path: '/pengujian',
+    meta: { kunci: true },
     component: () => import('layouts/MainLayout/MainLayout.vue'),
     children: [
       { path: '', component: () => import('pages/pengujian/pengujian.vue') }
@@ -34,7 +37,7 @@ const routes = [
     path: '/masuk',
     component: () => import('layouts/OtenLayout/OtenLayout.vue'),
     children: [
-      { path: '', component: () => import('pages/oten/otentikasi.vue') }
+      { path: '', component: () => import('pages/oten/otentikasi.vue'), name: 'masuk', }
     ]
   },
 
