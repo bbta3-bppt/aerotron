@@ -16,11 +16,12 @@ Aplikasi Aerotron terdiri dari sub aplikasi yaitu:
 
 Persiapkan .env di root direkstori aplikasi ini berupa: (menggunakan PostgreSQL database)
 ```text
-DEBUG=dev
-SECRET_KEY=SALTKEY
-DB_USERNAME=dbuser
-DB_PASSWORD=dbpwd
-DB_NAME=dbname
-DB_HOST=localhost
-DB_PORT=5432
+DEBUG=dev           #rest-api
+SECRET_KEY=SALTKEY  #rest-api
+DB_USERNAME=dbuser  #rest-api
+DB_PASSWORD=dbpwd   #rest-api
+DB_NAME=dbname      #rest-api
+DB_HOST=localhost   #rest-api
+DB_PORT=5432        #rest-api
+REST_HOST=localhost #ui
 ```
