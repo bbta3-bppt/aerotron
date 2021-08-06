@@ -4,13 +4,10 @@ import {Cookies, Notify} from "quasar"
 
 export default defineComponent({
   name: 'HalamanOtentikasi',
-  beforeRouteEnter(to, from, next) {
-    const check = to.matched.some(value => value.name === "masuk")
-
-    if (check) {
-      if (Cookies.has("_msk")) next({ path: from.path })
-      else next()
-    } else next()
+  beforeCreate() {
+    if (Cookies.has("_msk")) {
+      this.$router.push({path: "/"}).then(() => {})
+    }
   },
   setup() {
     const username = ref(null)
@@ -44,13 +41,15 @@ export default defineComponent({
             const token = res.data
 
             Cookies.set("_msk", token.access, {
-              sameSite: 'Strict'
+              sameSite: 'Lax'
             })
 
             Cookies.set("_mskr", token.refresh, {
-              sameSite: 'Strict',
-              httpOnly: true
+              sameSite: 'Lax',
+              expires: '1d'
             })
+
+            this.$router.push({path: "/"}).then(() => {})
           } catch (err) {
             let message = null
 
