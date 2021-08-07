@@ -1,7 +1,8 @@
-import { store } from 'quasar/wrappers'
-import { createStore } from 'vuex'
+import {store} from "quasar/wrappers"
+import {createStore} from "vuex"
 
-import otentikasi from './otentikasi'
+import otentikasi from "./otentikasi"
+import stok from "./stok"
 
 /*
  * If not building with SSR mode, you can
@@ -13,15 +14,14 @@ import otentikasi from './otentikasi'
  */
 
 export default store(function (/* { ssrContext } */) {
-  const Store = createStore({
+  return createStore({
     modules: {
-      otentikasi
+      otentikasi,
+      stok
     },
 
     // enable strict mode (adds overhead!)
     // for dev mode and --debug builds only
     strict: process.env.DEBUGGING
   })
-
-  return Store
 })
