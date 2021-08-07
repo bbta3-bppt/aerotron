@@ -50,7 +50,7 @@ export default defineComponent({
 
           router.push({path: "/"}).then(() => {})
         } catch (err) {
-          let message = null
+          let message
 
           if (err.response) {
             message = err.response.data.detail
