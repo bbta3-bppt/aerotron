@@ -1,5 +1,8 @@
-import EssentialLink from 'components/PilihanAplikasi/PilihanAplikasi.vue'
-import { defineComponent, ref } from 'vue'
+import {defineComponent, ref} from "vue"
+import {useRouter} from "vue-router"
+import {Cookies} from "quasar"
+
+import EssentialLink from "components/PilihanAplikasi/PilihanAplikasi.vue"
 
 const linksList = [
   {
@@ -24,20 +27,30 @@ const linksList = [
 
 export default defineComponent({
   name: 'MainLayout',
-
   components: {
     EssentialLink
   },
-
-  setup () {
+  setup() {
+    const essentialLinks = linksList
     const leftDrawerOpen = ref(false)
+    const router = useRouter()
+
+    const toggleLeftDrawer = () => {
+      leftDrawerOpen.value = !leftDrawerOpen.value
+    }
+
+    const onLogout = async () => {
+      Cookies.remove("_msk")
+      Cookies.remove("_mskr")
+
+      await router.push({name: "masuk"})
+    }
 
     return {
-      essentialLinks: linksList,
+      essentialLinks,
       leftDrawerOpen,
-      toggleLeftDrawer () {
-        leftDrawerOpen.value = !leftDrawerOpen.value
-      }
+      toggleLeftDrawer,
+      onLogout
     }
   }
 })

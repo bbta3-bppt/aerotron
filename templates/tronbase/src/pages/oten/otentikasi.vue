@@ -30,6 +30,7 @@
             v-model="password"
             label="Password"
             :rules="passwordRules"
+            model-value=""
           />
 
           <div>
