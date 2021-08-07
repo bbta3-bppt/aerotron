@@ -1,5 +1,5 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
+  <q-layout view="hHh Lpr lFf">
     <q-header elevated>
       <q-toolbar class="bg-black text-white">
         <q-btn
@@ -15,7 +15,13 @@
           AEROTRON
         </q-toolbar-title>
 
-        <div>Status: DEV</div>
+        <div class="q-gutter-sm">
+          <q-btn flat round color="white" icon="eva-log-out-outline" @click="onLogout">
+            <q-tooltip class="bg-red">
+              Keluar
+            </q-tooltip>
+          </q-btn>
+        </div>
       </q-toolbar>
     </q-header>
 
@@ -30,7 +36,7 @@
           header
           class="text-grey-8"
         >
-          Pilihan Aplikasi
+          Pilihan Fitur
         </q-item-label>
 
         <EssentialLink
