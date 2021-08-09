@@ -6,15 +6,36 @@ import {Cookies} from "quasar"
 export default boot(async ({store, router}) => {
   router.beforeEach(async (to, from, next) => {
     const kunci = to.matched.some(value => value.meta["kunci"])
+    const token = Cookies.get("_msk")
+    const refresh = Cookies.get("_mskr")
 
     if (kunci) {
-      if (Cookies.has("_msk")) {
+      try {
+        await store.dispatch("otentikasi/checkUser", {token})
+
         next()
-      } else {
-        next({name: "masuk"})
       }
 
-    } else {
+      catch (err) {
+        try {
+          const res = await store.dispatch(
+            "otentikasi/refreshAccessToken",
+            {refresh}
+          )
+          const refresh = res.data
+
+          Cookies.set("_msk", refresh["access"])
+        }
+
+        catch (err) {
+          Cookies.remove("_msk")
+          Cookies.remove("_mskr")
+          next({name: "masuk"})
+        }
+      }
+    }
+
+    else {
       next()
     }
   })
