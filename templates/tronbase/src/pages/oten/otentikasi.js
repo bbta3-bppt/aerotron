@@ -6,11 +6,6 @@ import {defineComponent, ref} from "vue"
 
 export default defineComponent({
   name: 'HalamanOtentikasi',
-  beforeCreate() {
-    if (Cookies.has("_msk")) {
-      this.$router.push({path: "/"}).then(() => {})
-    }
-  },
   setup() {
     const router = useRouter()
     const store = useStore()
@@ -49,13 +44,15 @@ export default defineComponent({
           })
 
           router.push({path: "/"}).then(() => {})
-        } catch (err) {
+        }
+
+        catch (err) {
           let message
 
           if (err.response) {
             message = err.response.data.detail
           } else if (err.request) {
-            message = err.request
+            message = err.request.responseText || "Server is not ready yet."
           } else {
             message = err.message
           }
