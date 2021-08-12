@@ -10,6 +10,20 @@ const dokumentasiPenunjang = [
     keterangan: "Status: OK"
   },
   {
+    gambar: "https://firebasestorage.googleapis.com/v0/b/aerotron-8f312.appspot.com/o/Dokumentasi%2FdokumentasiILST%2FCommissioning%20Remote%20Drive.jpeg?alt=media&token=93c01cb5-94e3-430f-9a88-e0e346b8a6b3",
+    rinciankegiatan: "COMMISSIONING REMOTE DRIVE",
+    tanggal: "11 Januari 2021 ",
+    pelaksana: "Pelaksana: Asep D. H., Arsal, M. Very N., Dwie V. D.",
+    keterangan: "Status: OK"
+  },
+  {
+    gambar: "https://firebasestorage.googleapis.com/v0/b/aerotron-8f312.appspot.com/o/Dokumentasi%2FdokumentasiILST%2FCommissioning%20Capacitor%20Bank.jpg?alt=media&token=62803f42-fd93-43a6-b5ad-c7d349165262",
+    rinciankegiatan: "COMMISSIONING CAPACITOR BANK",
+    tanggal: "11 Januari 2021 ",
+    pelaksana: "Pelaksana: Asep D. H., Arsal, M. Very N., Dwie V. D.",
+    keterangan: "Status: Perlu penyesuaian target PF"
+  },
+  {
     gambar: "https://firebasestorage.googleapis.com/v0/b/aerotron-8f312.appspot.com/o/Dokumentasi%2FdokumentasiILST%2FMonitoring%20Power%20Quality_25%20Januari%202021.jpeg?alt=media&token=0c87c247-e58d-4c1d-8456-095ff4666a51",
     rinciankegiatan: "MONITORING POWER QUALITY",
     tanggal: "25 Januari 2021 ",
@@ -77,6 +91,27 @@ const dokumentasiPenunjang = [
     rinciankegiatan: "PENERANGAN SEKSI UJI AREAS",
     tanggal: "27 JULI 2021 ",
     pelaksana: "Pelaksana: Arsal",
+    keterangan: "Status: OK"
+  },
+  { 
+    gambar: "https://firebasestorage.googleapis.com/v0/b/aerotron-8f312.appspot.com/o/Dokumentasi%2FdokumentasiPenunjang%2FPerbaikan%20pencahayaan%20tempat%20wudhu_03082021.jpeg?alt=media&token=3ab28455-6830-4f70-abb7-be485396ff7e",
+    rinciankegiatan: "PERBAIKAN PENCAHAYAAN TEMPAT WUDHU",
+    tanggal: "3 AGUSTUS 2021 ",
+    pelaksana: "Pelaksana: M. Very N., Dwie V. D.",
+    keterangan: "Status: OK"
+  },
+  { 
+    gambar: "https://firebasestorage.googleapis.com/v0/b/aerotron-8f312.appspot.com/o/Dokumentasi%2FdokumentasiPenunjang%2FPenggantian%20pencahayaan%20R.%20TROP_03082021.jpeg?alt=media&token=d562b6bd-9d81-44f2-be85-f47fa165f689",
+    rinciankegiatan: "PERBAIKAN PENCAHAYAAN R. TROP",
+    tanggal: "3 AGUSTUS 2021 ",
+    pelaksana: "Pelaksana: M. Very N., Dwie V. D.",
+    keterangan: "Status: OK"
+  },
+  { 
+    gambar: "https://firebasestorage.googleapis.com/v0/b/aerotron-8f312.appspot.com/o/Dokumentasi%2FdokumentasiPenunjang%2FPerbaikan%20saklar%20pencahayaan%20Ruang%20Ka.%20Balai.jpeg?alt=media&token=72978659-37ba-4151-8969-10d2ca3c0e23",
+    rinciankegiatan: "PERBAIKAN SWITCH PENCAHAYAAN R. KEPALA BALAI",
+    tanggal: "9 AGUSTUS 2021 ",
+    pelaksana: "Pelaksana: Franky S. P., M. Very N., Dwie V. D.",
     keterangan: "Status: OK"
   }
 
