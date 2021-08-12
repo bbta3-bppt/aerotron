@@ -1,4 +1,3 @@
-/*
-export function someGetter (state) {
+export function getLoggedInStatusGetter (state) {
+  return state.isLoggedIn
 }
-*/
