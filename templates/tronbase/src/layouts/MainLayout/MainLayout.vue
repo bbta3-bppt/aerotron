@@ -16,11 +16,13 @@
         </q-toolbar-title>
 
         <div class="q-gutter-sm">
-          <q-btn flat round color="white" icon="eva-log-out-outline" @click="onLogout">
+          <q-btn flat round color="white" icon="eva-log-out-outline" v-if="isLoggedIn" @click="onLogout">
             <q-tooltip class="bg-red">
               Keluar
             </q-tooltip>
           </q-btn>
+
+          <div v-else>BBTA3 BPPT</div>
         </div>
       </q-toolbar>
     </q-header>
