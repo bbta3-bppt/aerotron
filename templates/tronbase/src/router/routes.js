@@ -2,7 +2,7 @@
 const routes = [
   {
     path: '/',
-    meta: { kunci: true },
+    meta: { kunci: false },
     component: () => import('layouts/MainLayout/MainLayout.vue'),
     children: [
       { path: '', component: () => import('pages/perawatan/perawatan.vue') },
@@ -12,6 +12,23 @@ const routes = [
       { path: 'dokumentasiAREAS', component: () => import('pages/perawatan/dokumentasi/dokumentasiAREAS.vue') },
       { path: 'dokumentasiVIENTA', component: () => import('pages/perawatan/dokumentasi/dokumentasiVIENTA.vue') },
       { path: 'dokumentasiPenunjang', component: () => import('pages/perawatan/dokumentasi/dokumentasiPenunjang.vue') },
+    ]
+  },
+
+  {
+    path: '/operasi',
+    meta: { kunci: false },
+    component: () => import('layouts/MainLayout/MainLayout.vue'),
+    children: [
+      { path: '', component: () => import('pages/operasi/operasi.vue') },
+      { path: 'sopfandrivepowerhouseON', component: () => import('src/pages/operasi/sop/sopfandrivepowerhouseON.vue') },
+      { path: 'sopfandrivepowerhouseOFF', component: () => import('src/pages/operasi/sop/sopfandrivepowerhouseOFF.vue') },
+      { path: 'sopfandriveremoteON', component: () => import('src/pages/operasi/sop/sopfandriveremoteON.vue') },
+      { path: 'sopfandriveremoteOFF', component: () => import('src/pages/operasi/sop/sopfandriveremoteOFF.vue') },
+      { path: 'sopcompressorON', component: () => import('src/pages/operasi/sop/sopcompressorON.vue') },
+      { path: 'sopcompressorOFF', component: () => import('src/pages/operasi/sop/sopcompressorOFF.vue')},
+      { path: 'sopcoolingON', component: () => import('src/pages/operasi/sop/sopcoolingON.vue') },
+      { path: 'sopcoolingOFF', component: () => import('src/pages/operasi/sop/sopcoolingOFF.vue') }
     ]
   },
 
