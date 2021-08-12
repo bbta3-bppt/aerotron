@@ -44,6 +44,10 @@ export default defineComponent({
     const router = useRouter()
 
     const isLoggedIn = computed(() => {
+      if (Cookies.has("_msk")) {
+        store.commit("otentikasi/setLoginStatusMutation", {loggedIn: true})
+      }
+
       return store.getters["otentikasi/getLoggedInStatusGetter"]
     })
 
