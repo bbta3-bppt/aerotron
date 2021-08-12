@@ -24,7 +24,7 @@ const dokumentasiVIENTA = [
     keterangan: "Status: Perlu pengecekan kelistrikan"
   },
   {
-    gambar: "https://firebasestorage.googleapis.com/v0/b/aerotron-8f312.appspot.com/o/Dokumentasi%2FdokumentasiAREAS%2FObservasi%20Cable%20Routing%20ARA.jpeg?alt=media&token=a4b7ca59-aca3-4a21-9d9d-e0a80850d993",
+    gambar: "https://firebasestorage.googleapis.com/v0/b/aerotron-8f312.appspot.com/o/Dokumentasi%2FdokumentasiVIENTA%2FPerbaikan%20Silicon%20Sheet.jpeg?alt=media&token=4671a9ca-1c89-45f5-b912-d0e5082acb11",
     rinciankegiatan: "PENGGANTIAN SILICON SHEET CHAMBER",
     tanggal: "27 April 2021 ",
     pelaksana: "Pelaksana: Dimas S., Farhan A.",
@@ -36,7 +36,22 @@ const dokumentasiVIENTA = [
     tanggal: "25 Juni 2021 ",
     pelaksana: "Pelaksana: Dimas S.",
     keterangan: "Status: OK"
-  }
+  },
+  {
+    gambar: "https://firebasestorage.googleapis.com/v0/b/aerotron-8f312.appspot.com/o/Dokumentasi%2FdokumentasiVIENTA%2FPerbaikan%20Shaker_04082021.jpeg?alt=media&token=fa48baac-5867-4768-8ebd-ec54390f8a2f",
+    rinciankegiatan: "PERBAIKAN SHAKER",
+    tanggal: "4 Agustus 2021 ",
+    pelaksana: "Pelaksana: Dimas S., Farhan Ali M., Sahran, R. Wibawa P.",
+    keterangan: "Status: Selesai pada 5 Agustus"
+  },
+  {
+    gambar: "https://firebasestorage.googleapis.com/v0/b/aerotron-8f312.appspot.com/o/Dokumentasi%2FdokumentasiVIENTA%2FPengecekan%20board%20blower%20inverter.jpeg?alt=media&token=2ae3881c-d09c-4632-9f78-b3b98a8fed51",
+    rinciankegiatan: "PENGECEKAN INVERTER CIRCUIT BOARD",
+    tanggal: "10 Agustus 2021 ",
+    pelaksana: "Pelaksana: M. Very N., Farhan Ali M., Angga.",
+    keterangan: "Status: Ditemukan kerusakan komponen"
+  },
+
 ]
 
 
