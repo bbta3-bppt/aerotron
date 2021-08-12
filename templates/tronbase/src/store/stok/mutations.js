@@ -1,5 +1,5 @@
-export function pushBarangMutation(state, {payload}) {
-  state.barang.push(payload)
+export function setBarangMutation(state, {payload}) {
+  state.barang = payload
 }
 
 export function resetBarangMutation(state) {

@@ -23,5 +23,6 @@ DB_PASSWORD=dbpwd   #rest-api
 DB_NAME=dbname      #rest-api
 DB_HOST=localhost   #rest-api
 DB_PORT=5432        #rest-api
+PAGE_SIZE=10        #rest-api;ui
 REST_HOST=localhost #ui
 ```

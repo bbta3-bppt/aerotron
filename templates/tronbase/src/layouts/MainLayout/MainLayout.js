@@ -1,5 +1,6 @@
-import {defineComponent, ref} from "vue"
+import {defineComponent, ref, computed} from "vue"
 import {useRouter} from "vue-router"
+import {useStore} from "vuex"
 import {Cookies} from "quasar"
 
 import EssentialLink from "components/PilihanAplikasi/PilihanAplikasi.vue"
@@ -10,6 +11,12 @@ const linksList = [
     caption: 'Jadwal Perawatan',
     icon: 'bi-calendar-week',
     link: '/'
+  },
+  {
+    title: 'Operasi',
+    caption: 'Standar Peengoperasian Alat',
+    icon: 'precision_manufacturing',
+    link: '/operasi'
   },
   {
     title: 'Stok',
@@ -31,9 +38,18 @@ export default defineComponent({
     EssentialLink
   },
   setup() {
+    const store = useStore()
     const essentialLinks = linksList
     const leftDrawerOpen = ref(false)
     const router = useRouter()
+
+    const isLoggedIn = computed(() => {
+      if (Cookies.has("_msk")) {
+        store.commit("otentikasi/setLoginStatusMutation", {loggedIn: true})
+      }
+
+      return store.getters["otentikasi/getLoggedInStatusGetter"]
+    })
 
     const toggleLeftDrawer = () => {
       leftDrawerOpen.value = !leftDrawerOpen.value
@@ -43,10 +59,12 @@ export default defineComponent({
       Cookies.remove("_msk")
       Cookies.remove("_mskr")
 
+      store.commit("otentikasi/setLoginStatusMutation", {loggedIn: false})
       await router.push({name: "masuk"})
     }
 
     return {
+      isLoggedIn,
       essentialLinks,
       leftDrawerOpen,
       toggleLeftDrawer,

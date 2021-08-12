@@ -133,3 +133,6 @@ dmypy.json
 # Editor
 .idea
 .vscode
+
+# Firebase
+.firebase

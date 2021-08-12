@@ -34,14 +34,15 @@ export default defineComponent({
           const token = res.data
 
           Cookies.set("_msk", token.access, {
-            sameSite: 'Lax',
-            expires: '1d'
+            sameSite: 'Lax'
           })
 
           Cookies.set("_mskr", token.refresh, {
             sameSite: 'Lax',
             expires: '1d'
           })
+
+          store.commit("otentikasi/setLoginStatusMutation", {loggedIn: true})
 
           router.push({path: "/"}).then(() => {})
         }

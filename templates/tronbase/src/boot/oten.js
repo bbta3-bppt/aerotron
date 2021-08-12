@@ -7,7 +7,6 @@ export default boot(async ({store, router}) => {
   router.beforeEach(async (to, from, next) => {
     const kunci = to.matched.some(value => value.meta["kunci"])
     const token = Cookies.get("_msk")
-    const refresh = Cookies.get("_mskr")
 
     if (kunci) {
       try {
@@ -18,13 +17,15 @@ export default boot(async ({store, router}) => {
 
       catch (err) {
         try {
+          const refresh = Cookies.get("_mskr")
           const res = await store.dispatch(
             "otentikasi/refreshAccessToken",
             {refresh}
           )
-          const refresh = res.data
+          const fresh = res.data
 
-          Cookies.set("_msk", refresh["access"])
+          Cookies.set("_msk", fresh["access"])
+          next()
         }
 
         catch (err) {
