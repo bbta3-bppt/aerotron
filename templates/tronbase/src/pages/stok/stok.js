@@ -9,6 +9,7 @@ export default defineComponent({
   setup() {
     const store = useStore()
     const router = useRouter()
+    const page_size = ref(process.env.PAGE_SIZE)
 
     // Dropdown menu
     const kategori = ref(null)
@@ -93,6 +94,7 @@ export default defineComponent({
 
     return {
       barang,
+      page_size,
       kategori,
       options,
       count,
