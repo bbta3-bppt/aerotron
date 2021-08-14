@@ -28,7 +28,7 @@ export default defineComponent({
     }
 
     // Pagination
-    const count = ref(10)
+    const count = ref(0)
     const current = ref(1)
 
     // Pencarian
@@ -52,16 +52,17 @@ export default defineComponent({
     }
 
     // Stok barang
-    const page = ref(0)
     const barang = ref({count: 0, results: [], next: null, previous: null})
     const getBarang = async () => {
       try {
-        const res = await store.dispatch("stok/getBarangAction", {page: page.value})
+        const res = await store.dispatch("stok/getBarangAction", {page: current.value})
         const payload = res.data
 
+        store.commit("stok/resetBarangMutation")
         store.commit("stok/setBarangMutation", {payload: payload["results"]})
         barang.value["results"] = store.getters["stok/barangGetter"]
         barang.value["count"] = payload["count"]
+        count.value = Math.round(payload["count"] / page_size.value)
         barang.value["next"] = payload["next"]
         barang.value["previous"] = payload["previous"]
       }
@@ -106,7 +107,7 @@ export default defineComponent({
       onReset,
       filterFn,
       setModel,
-      getBarang
+      getBarang,
     }
   }
 })
