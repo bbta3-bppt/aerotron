@@ -8,7 +8,7 @@ export async function getBarangAction (ctx, {page}) {
     `${window.location.protocol}//${process.env.REST_HOST}/stok/api/barang/`,
     {
       headers: { authorization: `Bearer ${header}` },
-      params: { pages: page != null ? page : null }
+      params: { page: page != null ? page : null }
     }
   )
 }
