@@ -72,11 +72,11 @@
         </th>
       </tr>
       <tr class="text-white">
-        <th class="text-left">No.</th>
-        <th class="text-right">Nama Barang</th>
+        <th class="text-left">Nama Barang</th>
         <th class="text-right">Spesifikasi Teknis</th>
         <th class="text-right">Jumlah Barang</th>
         <th class="text-right">Lokasi Barang</th>
+        <th class="text-right">Kategori</th>
         <th class="text-right">Keterangan</th>
         <th class="text-center">Aksi</th>
       </tr>
@@ -84,11 +84,15 @@
 
       <tbody>
       <tr v-for="brg in barang.results" :key="brg['id']">
-        <td class="text-left">1</td>
-        <td class="text-right">{{ brg.nama }}</td>
+        <td class="text-left">{{ brg.nama }}</td>
         <td class="text-right">{{ brg.spek }}</td>
         <td class="text-right">{{ brg.jumlah }}</td>
-        <td class="text-right">{{ brg.lokasi }}</td>
+        <td class="text-right q-gutter-sm">
+          <q-badge color="blue" v-for="b in brg.lokasi_lokasi" :key="b.id">
+            {{ b.nama }}
+          </q-badge>
+        </td>
+        <td class="text-right">{{ brg.nama_kategori }}</td>
         <td class="text-right">{{ brg.keterangan }}</td>
         <td class="text-center q-gutter-sm">
           <q-btn flat round color="green" icon="eva-edit-outline">
@@ -112,6 +116,7 @@
       :model-value="current"
       class="q-mb-md"
       v-if="barang.count > page_size"
+      @click="getBarang"
     />
   </q-page>
 </template>
