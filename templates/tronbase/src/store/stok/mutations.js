@@ -7,9 +7,12 @@ export function setBarangMutation(state, {count, results, next, previous}) {
 
 export function setKategoriMutation(state, {count, results, next, previous}) {
   state.kategori.count = count
-  state.kategori.results = results
   state.kategori.next = next
   state.kategori.previous = previous
+
+  results.forEach(kategori => {
+    state.kategori.results.push(kategori.nama)
+  })
 }
 
 export function resetBarangMutation(state) {
