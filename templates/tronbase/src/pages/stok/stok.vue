@@ -2,7 +2,7 @@
   <q-page padding>
     <div class="row justify-between self-center q-mb-md">
       <div class="col-12 col-md-2">
-        <DropdownKategori />
+        <DropdownKategori class="q-mb-sm" />
       </div>
 
       <div class="col-12 col-md-3">
