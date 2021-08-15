@@ -3,5 +3,5 @@ export function barangGetter (state) {
 }
 
 export function kategoriGetter (state) {
-  return state.barang
+  return state.kategori
 }
