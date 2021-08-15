@@ -1,5 +1,6 @@
 import {boot} from "quasar/wrappers"
 import {Cookies} from "quasar"
+import {refreshToken} from "../services/refresh"
 
 // "async" is optional;
 // more info on params: https://v2.quasar.dev/quasar-cli/boot-files
@@ -16,23 +17,7 @@ export default boot(async ({store, router}) => {
       }
 
       catch (err) {
-        try {
-          const refresh = Cookies.get("_mskr")
-          const res = await store.dispatch(
-            "otentikasi/refreshAccessToken",
-            {refresh}
-          )
-          const fresh = res.data
-
-          Cookies.set("_msk", fresh["access"])
-          next()
-        }
-
-        catch (err) {
-          Cookies.remove("_msk")
-          Cookies.remove("_mskr")
-          next({name: "masuk"})
-        }
+        await refreshToken(store, next)
       }
     }
 
