@@ -2,6 +2,7 @@ import {useStore} from "vuex"
 import {useRouter} from "vue-router"
 import {defineComponent, ref, onBeforeMount} from "vue"
 import {Notify} from "quasar"
+import {refreshToken} from "src/services/refresh";
 
 
 export default defineComponent({
@@ -71,21 +72,17 @@ export default defineComponent({
         let message
 
         if (err.response) {
-          message = err.response.data.detail || "Something is wrong happening."
+          await refreshToken(store, null, router)
+          await getBarang()
         }
-
-        else if (err.request) {
-          message = err.request.responseText || "Server is not ready yet."
-        }
-
         else {
           message = err.message
-        }
 
-        Notify.create({
-          type: "negative",
-          message: message
-        })
+          Notify.create({
+            type: "negative",
+            message: message
+          })
+        }
       }
     }
 
