@@ -23,7 +23,9 @@ export default defineComponent({
     })
 
     const onGetBarang = async () => {
-      await getBarang(store, current.value, router)
+      const kategori = store.getters["stok/pilihKategoriGetter"]
+
+      await getBarang(store, current.value, router, kategori)
     }
 
     // Pagination
