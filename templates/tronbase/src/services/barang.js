@@ -1,13 +1,14 @@
 import {refreshToken} from "src/services/refresh"
 import {Notify} from "quasar"
 
-export const getBarang = async (store, page, router) => {
+export const getBarang = async (store, page=1, router, kategori=null) => {
   const st = store
   const pg = page
   const rt = router
+  const kat = kategori
 
   try {
-    const res = await st.dispatch("stok/getBarangAction", {page: pg})
+    const res = await st.dispatch("stok/getBarangAction", {page: pg, kategori: kat})
     const payload = res.data
 
     st.commit("stok/resetBarangMutation")
@@ -24,7 +25,7 @@ export const getBarang = async (store, page, router) => {
 
     if (err.response) {
       await refreshToken(st, null, rt)
-      await getBarang(st, pg, rt)
+      await getBarang(st, pg, rt, kat)
     }
     else {
       message = err.message

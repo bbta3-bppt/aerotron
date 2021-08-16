@@ -1,14 +1,17 @@
 import axios from "axios"
 import {Cookies} from "quasar"
 
-export async function getBarangAction (ctx, {page}) {
+export async function getBarangAction (ctx, {page, kategori}) {
   const header = Cookies.get("_msk")
 
   return await axios.get(
     `${window.location.protocol}//${process.env.REST_HOST}/stok/api/barang/`,
     {
       headers: { authorization: `Bearer ${header}` },
-      params: { page: page != null ? page : null }
+      params: {
+        page: page != null ? page : null,
+        kategori: kategori != null ? kategori : null
+      }
     }
   )
 }

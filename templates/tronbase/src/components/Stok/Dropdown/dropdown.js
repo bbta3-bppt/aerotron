@@ -1,15 +1,16 @@
-import {ref, onBeforeMount} from "vue"
+import {ref, onBeforeMount, computed} from "vue"
 import {Notify} from "quasar"
 import {useStore} from "vuex"
 import {useRouter} from "vue-router"
 import {refreshToken} from "src/services/refresh"
+import {getBarang} from "src/services/barang";
 
 export default {
   name: "KategoriDropdownComponent",
   setup() {
     const store = useStore()
     const router = useRouter()
-    const kategori = ref(null)
+    const kategori = ref("")
     const lastPage = ref(0)
     const options = ref([])
     const nextPage = ref(1)
@@ -17,9 +18,20 @@ export default {
     onBeforeMount(async () => {
       await getKategori(1)
 
-      const kategori = store.getters["stok/kategoriGetter"]
-      options.value = kategori.results
-      lastPage.value = Math.ceil(kategori.count / process.env.PAGE_SIZE)
+      const kat = store.getters["stok/kategoriGetter"]
+      options.value = kat.results
+      lastPage.value = Math.ceil(kat.count / process.env.PAGE_SIZE)
+    })
+
+    const seleksiKategori = computed({
+      get() {
+        return kategori.value
+      },
+      async set(val) {
+        kategori.value = val
+        store.commit("stok/setPilihKategoriMutation", val)
+        await getBarang(store, 1, router, val)
+      }
     })
 
     const onScroll = async (props) => {
@@ -31,6 +43,10 @@ export default {
         const kategori = store.getters["stok/kategoriGetter"]
         options.value = kategori.results
       }
+    }
+
+    const onInputChange = (val) => {
+      console.log(val)
     }
 
     const getKategori = async (page) => {
@@ -67,8 +83,10 @@ export default {
 
     return {
       kategori,
+      seleksiKategori,
       options,
-      onScroll
+      onScroll,
+      onInputChange
     }
   }
 }

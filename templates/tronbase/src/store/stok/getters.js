@@ -5,3 +5,7 @@ export function barangGetter (state) {
 export function kategoriGetter (state) {
   return state.kategori
 }
+
+export function pilihKategoriGetter (state) {
+  return state.pilihkategori
+}
