@@ -1,12 +1,13 @@
 <template>
   <q-select
     outlined dense
-    v-model="kategori"
+    clearable
+    v-model="seleksiKategori"
     label="Kategori"
-    emit-value
-    :model-value="kategori"
+    :model-value="seleksiKategori"
     :options="options"
     @virtual-scroll="onScroll"
+    @input-value="onInputChange"
   />
 </template>
 
