@@ -19,6 +19,6 @@ export function resetBarangMutation(state) {
   state.barang.results = []
 }
 
-export function resetKategoriMutation(state) {
-  state.kategori.results = []
+export function setPilihKategoriMutation(state, kategori) {
+  state.pilihkategori = kategori
 }
