@@ -6,26 +6,7 @@
       </div>
 
       <div class="col-12 col-md-3">
-        <form
-          @submit.prevent.stop="onSearch"
-        >
-          <q-input
-            dense outlined
-            v-model="temukan"
-            color="green" label="Cari..."
-            lazy-rules
-            ref="temukanRef"
-            :rules="temukanRules"
-            :model-value="temukan"
-          >
-            <template v-slot:prepend>
-              <q-icon name="eva-search-outline"/>
-            </template>
-            <template v-slot:append v-if="temukanRef && temukanRef.hasError">
-              <q-icon name="eva-close-outline" @click="onReset" class="cursor-pointer"/>
-            </template>
-          </q-input>
-        </form>
+        <SearchBarang />
       </div>
     </div>
 
