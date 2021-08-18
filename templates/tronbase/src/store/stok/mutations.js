@@ -22,3 +22,7 @@ export function resetBarangMutation(state) {
 export function setPilihKategoriMutation(state, kategori) {
   state.pilihkategori = kategori
 }
+
+export function setCariMutation(state, cari) {
+  state.cari = cari
+}
