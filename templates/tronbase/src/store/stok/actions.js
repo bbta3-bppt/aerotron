@@ -1,11 +1,11 @@
-import axios from "axios"
+import {api} from "boot/axios"
 import {Cookies} from "quasar"
 
 export async function getBarangAction (ctx, {page, kategori}) {
   const header = Cookies.get("_msk")
 
-  return await axios.get(
-    `${window.location.protocol}//${process.env.REST_HOST}/stok/api/barang/`,
+  return await api.get(
+    `stok/api/barang/`,
     {
       headers: { authorization: `Bearer ${header}` },
       params: {
@@ -19,8 +19,8 @@ export async function getBarangAction (ctx, {page, kategori}) {
 export async function getKategoriAction (ctx, {page}) {
   const header = Cookies.get("_msk")
 
-  return await axios.get(
-    `${window.location.protocol}//${process.env.REST_HOST}/stok/api/kategori/`,
+  return await api.get(
+    `stok/api/kategori/`,
     {
       headers: { authorization: `Bearer ${header}` },
       params: { page: page != null ? page : null }
