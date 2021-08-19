@@ -9,3 +9,7 @@ export function kategoriGetter (state) {
 export function pilihKategoriGetter (state) {
   return state.pilihkategori
 }
+
+export function cariGetter (state) {
+  return state.cari
+}

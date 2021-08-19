@@ -12,10 +12,21 @@ class BarangView(generics.ListCreateAPIView):
 
     def get_queryset(self):
         nama_kategori = self.request.query_params.get("kategori", None)
+        cari_barang = self.request.query_params.get("cari", None)
 
         if nama_kategori:
-            seleksi_barang = get_object_or_404(Kategori, nama__iexact=nama_kategori)
+            seleksi_barang = get_object_or_404(Kategori, nama__contains=nama_kategori)
+            barang = Barang.objects.filter(kategori=seleksi_barang.pk)
 
-            return Barang.objects.filter(kategori=seleksi_barang.pk)
+        elif cari_barang:
+            barang = Barang.objects.filter(nama__search=cari_barang)
 
-        return Barang.objects.all()
+        elif nama_kategori and cari_barang:
+            barang = Barang.objects\
+                .filter(kategori__barang__nama__search=nama_kategori)\
+                .filter(nama__search=cari_barang)
+
+        else:
+            barang = Barang.objects.all()
+
+        return barang
