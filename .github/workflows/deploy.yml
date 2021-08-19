@@ -6,7 +6,7 @@ on:
       - '*'
 
 jobs:
-  deploy_aerotron:
+  deploy_aerotron_ui:
     name: Deploy Aerotron UI
     runs-on: server-17
     steps:
@@ -38,9 +38,30 @@ jobs:
 
       - name: Cleaning Up
         run: |
-          rm -rf aerotron oten perawatan stok
+          rm -rf aerotron oten perawatan stok LICENSE manage.py README.md requirements.txt
           cd templates/tronbase
           rm -rf node_modules public src
           rm -rf babel.config.js firebase.json jsconfig.json package.json package-lock.json
           rm -rf quasar.conf.js README.md
           mv dist/spa/* ../..
+          cd ../..
+          rm -rf templates
+
+  deploy_aerotron_core:
+    name: Deploy Aerotron Core
+    runs-on: server-19
+    steps:
+      - name: Checkout Latest Version
+        uses: actions/checkout@v2
+
+      - name: Create Environment
+        run: |
+          cat > .env << ENDOFFILE
+          STREAM_ADDRESS=${{ secrets.STREAM_ADDRESS }}
+          PAGE_SIZE=10
+          REST_HOST=aerowork.bppt.go.id
+          ENDOFFILE
+
+      - name: Install Requirements
+        run: |
+          pip install -r requirements.txt
