@@ -26,3 +26,7 @@ DB_PORT=5432        #rest-api
 PAGE_SIZE=10        #rest-api;ui
 REST_HOST=localhost #ui
 ```
+
+Pengembangan aplikasi ini menggunakan database PostgreSQL sehingga membutuhkan _driver_ yang sesuai.
+Cara cepat yang digunakan adalah dengan memasang _python package_ melalui instruksi
+```pip install psycopg2-binary```. _Package_ ini memiliki kompatibilitas dengan Windows, Linux dan MacOS.
