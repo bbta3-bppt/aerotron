@@ -31,12 +31,17 @@ export default defineComponent({
     const count = ref(0)
     const current = ref(1)
 
+    const rincianStok = async (id) => {
+      await router.push({name: "rincian_stok_page", params: {id}})
+    }
+
     return {
       barang,
       page_size,
       count,
       current,
-      onGetBarang
+      onGetBarang,
+      rincianStok
     }
   }
 })
