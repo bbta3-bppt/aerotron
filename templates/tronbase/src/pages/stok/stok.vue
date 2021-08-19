@@ -44,7 +44,11 @@
           <td class="text-center">{{ brg.nama_kategori }}</td>
           <td class="text-center">{{ brg.keterangan }}</td>
           <td class="text-center q-gutter-sm">
-            <q-btn flat round color="black" icon="eva-options-2-outline">
+            <q-btn flat round
+                   color="black"
+                   icon="eva-options-2-outline"
+                   @click="rincianStok(brg.id)"
+            >
               <q-tooltip>Lihat data</q-tooltip>
             </q-btn>
           </td>
