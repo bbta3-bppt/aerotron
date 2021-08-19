@@ -6,9 +6,9 @@ on:
       - '*'
 
 jobs:
-  upload_aerobro:
-    name: Upload Aplikasi Aerotron
-    runs-on: ubuntu-20.04
+  deploy_aerotron:
+    name: Deploy Aerotron UI
+    runs-on: server-17
     steps:
       - name: Checkout Latest Version
         uses: actions/checkout@v2
@@ -31,12 +31,16 @@ jobs:
           cd templates/tronbase
           cat > .env << ENDOFFILE
           STREAM_ADDRESS=${{ secrets.STREAM_ADDRESS }}
-          ACC_THRESHOLD_MIN=0.3
-          ACC_THRESHOLD_MAX=0.7
-          STRAIN_THRESHOLD_MIN=0.4
-          STRAIN_THRESHOLD_MAX=0.6
-          DISP_THRESHOLD_MIN=0.4
-          DISP_THRESHOLD_MAX=0.6
-          REPO_NAME=aerotron
+          PAGE_SIZE=10
+          REST_HOST=aerowork.bppt.go.id
           ENDOFFILE
           quasar build
+
+      - name: Cleaning Up
+        run: |
+          rm -rf aerotron oten perawatan stok
+          cd templates/tronbase
+          rm -rf node_modules public src
+          rm -rf babel.config.js firebase.json jsconfig.json package.json package-lock.json
+          rm -rf quasar.conf.js README.md
+          mv dist/spa/* ../..
