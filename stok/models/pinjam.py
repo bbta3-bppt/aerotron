@@ -9,7 +9,7 @@ class Pinjam(models.Model):
     jumlah = models.IntegerField()
     dipinjam = models.ForeignKey(User, on_delete=models.CASCADE)
     kapan = models.DateTimeField(auto_now_add=True)
-    dikembalikan = models.DateTimeField(blank=True)
+    dikembalikan = models.DateTimeField(blank=True, null=True)
 
     class Meta:
         verbose_name_plural = "Pinjam"
