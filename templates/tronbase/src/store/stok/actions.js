@@ -17,6 +17,17 @@ export async function getBarangAction (ctx, {page, kategori, cari}) {
   )
 }
 
+export async function getBarangTertentuAction (ctx, id) {
+  const header = Cookies.get("_msk")
+
+  return await api.get(
+    `stok/api/barang/${id}`,
+    {
+      headers: { authorization: `Bearer ${header}` },
+    }
+  )
+}
+
 export async function getKategoriAction (ctx, {page}) {
   const header = Cookies.get("_msk")
 
