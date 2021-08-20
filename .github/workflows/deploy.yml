@@ -58,10 +58,21 @@ jobs:
         run: |
           cat > .env << ENDOFFILE
           STREAM_ADDRESS=${{ secrets.STREAM_ADDRESS }}
+          DEBUG=prod
+          SECRET_KEY=${{ secrets.SECRET_KEY }}
+          DB_USERNAME=${{ secrets.DB_USERNAME }}
+          DB_PASSWORD=${{ secrets.DB_PASSWORD }}
+          DB_NAME=${{ secrets.DB_NAME }}
+          DB_HOST=${{ secrets.DB_HOST }}
+          DB_PORT=${{ secrets.DB_PORT }}
           PAGE_SIZE=10
-          REST_HOST=aerowork.bppt.go.id
           ENDOFFILE
 
       - name: Install Requirements
         run: |
           pip install -r requirements.txt
+          python3 manage.py migrate
+
+      - name: Cleaning Up
+        run: |
+          rm -rf templates/tronbase

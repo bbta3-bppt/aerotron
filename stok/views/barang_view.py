@@ -30,3 +30,8 @@ class BarangView(generics.ListCreateAPIView):
             barang = Barang.objects.all()
 
         return barang
+
+
+class SelectedBarangView(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = BarangSerializer
+    queryset = Barang.objects.all()

@@ -28,6 +28,35 @@ export const getBarang = async (store, page=1, router) => {
       await refreshToken(st, null, rt)
       await getBarang(st, pg, rt)
     }
+
+    else {
+      message = err.message
+
+      Notify.create({
+        type: "negative",
+        message: message
+      })
+    }
+  }
+}
+
+export const getBarangTertentu = async (store, router, id) => {
+  const st = store
+  const rt = router
+  const i = id
+
+  try {
+    return await st.dispatch("stok/getBarangTertentuAction", i)
+  }
+
+  catch (err) {
+    let message
+
+    if (err.response) {
+      await refreshToken(st, null, rt)
+      await getBarangTertentu(st, rt, i)
+    }
+
     else {
       message = err.message
 
