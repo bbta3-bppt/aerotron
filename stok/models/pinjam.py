@@ -13,6 +13,7 @@ class Pinjam(models.Model):
 
     class Meta:
         verbose_name_plural = "Pinjam"
+        ordering = ['-kapan']
         indexes = [
             models.Index(fields=["barang", "dipinjam"])
         ]
