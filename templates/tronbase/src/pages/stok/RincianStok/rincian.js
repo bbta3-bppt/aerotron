@@ -1,7 +1,9 @@
-import {computed, ref, onBeforeMount} from "vue"
+import moment from "moment"
+import {computed, ref, onMounted} from "vue"
 import {getBarangTertentu} from "src/services/barang"
 import {useRouter, useRoute} from "vue-router"
 import {useStore} from "vuex"
+import {getAllPinjamanTertentu} from "src/services/pinjaman"
 
 export default {
   name: 'RincianBarangPage',
@@ -9,6 +11,7 @@ export default {
     const store = useStore()
     const router = useRouter()
     const route = useRoute()
+    const pinjaman = ref([])
     const barang = ref({})
     const barangTertentu = computed({
       get() {
@@ -19,10 +22,15 @@ export default {
       }
     })
 
-    onBeforeMount(async () => {
+    onMounted(async () => {
+      moment.locale("id")
+
       const paramsId = route.params["id"]
       const res = await getBarangTertentu(store, router, paramsId)
+      const resPinjaman = await getAllPinjamanTertentu(store, router, 1, paramsId)
+
       barangTertentu.value = res.data
+      pinjaman.value = resPinjaman
     })
 
     const onKembali = () => {
@@ -31,6 +39,8 @@ export default {
 
     return {
       barangTertentu,
+      pinjaman,
+      moment,
       onKembali
     }
   }
