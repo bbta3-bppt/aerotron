@@ -83,38 +83,43 @@
           <q-btn color="primary" label="Pinjaman" icon="eva-swap-outline" />
         </q-btn-group>
       </div>
+
       <div class="col-12 col-md-8 q-pa-sm">
         <q-list bordered class="rounded-borders">
           <q-item-label header>Riwayat Peminjaman</q-item-label>
 
           <q-separator spaced />
 
-          <q-item clickable v-ripple>
+          <q-item v-if="pinjaman.count === 0">
             <q-item-section>
-              <q-item-label lines="1">Brunch this weekend?</q-item-label>
-              <q-item-label caption lines="2">
-                <span class="text-weight-bold">Janet</span>
-                -- I'll be in your neighborhood doing errands this
-                weekend. Do you want to grab brunch?
-              </q-item-label>
-            </q-item-section>
-
-            <q-item-section side top>
-              1 min ago
+              <q-item-section>
+                <q-item-label>Data pinjaman belum ada</q-item-label>
+              </q-item-section>
             </q-item-section>
           </q-item>
 
-          <q-item clickable v-ripple>
+          <q-item clickable v-ripple v-for="pj in pinjaman.results" :key="pj.id" v-else>
             <q-item-section>
-              <q-item-label lines="1">Linear Project</q-item-label>
+              <q-item-label lines="1">
+                Dipinjam oleh <q-badge color="red">
+                  {{ pj.nama_peminjam }}
+                </q-badge>
+              </q-item-label>
+
               <q-item-label caption lines="2">
-                <span class="text-weight-bold">John</span>
-                -- Can we schedule a call for tomorrow?
+                <span class="text-weight-bold">Kapan</span>
+                -- {{ moment(pj.kapan).format("LLLL") }}
+              </q-item-label>
+
+              <q-item-label caption lines="2">
+                <span class="text-weight-bold">Sebanyak</span>
+                -- {{ pj.jumlah }}
               </q-item-label>
             </q-item-section>
 
             <q-item-section side top>
-              1 min ago
+              <p v-if="pj.dikembalikan">{{ moment(pj.dikembalikan).fromNow() }}</p>
+              <p v-else>Belum dikembalikan</p>
             </q-item-section>
           </q-item>
         </q-list>
