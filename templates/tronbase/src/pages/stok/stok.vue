@@ -38,8 +38,19 @@
             </q-badge>
           </td>
 
-          <td class="text-left">{{ brg.nama }}</td>
-          <td class="text-left">{{ brg.bmn }}</td>
+          <td class="text-left">
+            {{ brg.nama }}
+            <q-tooltip
+              anchor="bottom left"
+              self="center left"
+              transition-show="scale"
+              transition-hide="scale"
+              v-if="brg.spek"
+            >
+              {{ brg.spek }}
+            </q-tooltip>
+          </td>
+          <td class="text-center">{{ brg.bmn }}</td>
           <td class="text-center">{{ brg.jumlah }}</td>
           <td class="text-center">{{ brg.nama_kategori }}</td>
           <td class="text-center q-gutter-sm">
