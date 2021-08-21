@@ -7,6 +7,7 @@ from stok.models.lokasi import Lokasi
 class Barang(models.Model):
     foto = models.ImageField(upload_to="barang", blank=True)
     nama = models.CharField(max_length=255)
+    bmn = models.TextField(blank=True)
     keterangan = models.TextField(blank=True)
     spek = models.TextField(verbose_name="spesifikasi", blank=True)
     jumlah = models.IntegerField()
