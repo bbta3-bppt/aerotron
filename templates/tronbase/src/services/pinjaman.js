@@ -8,10 +8,15 @@ export const getAllPinjamanTertentu = async (store, router, page=1, id) => {
   const i = id
 
   try {
-    store.commit("pinjaman/resetAllPinjamanMutation")
-    const res = await st.dispatch("pinjaman/getAllPinjamanAction", {page: pg, id: i})
+    if (page === 1) store.commit("pinjaman/resetAllPinjamanMutation")
 
-    return res.data
+    const res = await st.dispatch("pinjaman/getAllPinjamanAction", {page: pg, id: i})
+    store.commit("pinjaman/setAllPinjamanMutation", {
+      count: res.data["count"],
+      results: res.data["results"],
+      next: res.data["next"],
+      previous: res.data["previous"]
+    })
   }
 
   catch (err) {

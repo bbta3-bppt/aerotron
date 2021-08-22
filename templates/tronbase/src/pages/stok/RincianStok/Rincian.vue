@@ -79,8 +79,12 @@
         </q-list>
 
         <q-btn-group spread class="q-mt-md">
-          <q-btn color="black" label="Kembali" icon="eva-undo-outline" @click="onKembali" />
-          <q-btn color="primary" label="Pinjaman" icon="eva-swap-outline" />
+          <q-btn color="black"
+                 label="Kembali"
+                 icon="eva-undo-outline"
+                 class="full-width"
+                 @click="onKembali"
+          />
         </q-btn-group>
       </div>
 
@@ -113,7 +117,7 @@
 
               <q-item-label caption lines="2">
                 <span class="text-weight-bold">Sebanyak</span>
-                -- {{ pj.jumlah }}
+                -- {{ Math.abs(pj.jumlah) }}
               </q-item-label>
             </q-item-section>
 
@@ -123,6 +127,17 @@
             </q-item-section>
           </q-item>
         </q-list>
+
+        <div class="row q-my-md">
+          <div class="col text-right">
+            <q-btn color="green"
+                   text-color="white"
+                   label="MUAT LAGI"
+                   @click="onMemuatPinajaman"
+                   v-if="pinjaman.next"
+            />
+          </div>
+        </div>
       </div>
     </div>
   </q-page>
