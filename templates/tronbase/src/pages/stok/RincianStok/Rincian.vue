@@ -79,8 +79,12 @@
         </q-list>
 
         <q-btn-group spread class="q-mt-md">
-          <q-btn color="black" label="Kembali" icon="eva-undo-outline" @click="onKembali" />
-          <q-btn color="primary" label="Pinjaman" icon="eva-swap-outline" @click="onPinjaman" />
+          <q-btn color="black"
+                 label="Kembali"
+                 icon="eva-undo-outline"
+                 class="full-width"
+                 @click="onKembali"
+          />
         </q-btn-group>
       </div>
 
@@ -113,7 +117,7 @@
 
               <q-item-label caption lines="2">
                 <span class="text-weight-bold">Sebanyak</span>
-                -- {{ pj.jumlah }}
+                -- {{ Math.abs(pj.jumlah) }}
               </q-item-label>
             </q-item-section>
 
@@ -135,27 +139,6 @@
           </div>
         </div>
       </div>
-
-      <q-dialog v-model="dialogPinjaman" persistent>
-        <q-card>
-          <q-bar>
-            <q-icon name="eva-swap-outline" />
-            <div>Kelola Pinjaman</div>
-
-            <q-space />
-
-            <q-btn dense flat icon="close" v-close-popup>
-              <q-tooltip>Close</q-tooltip>
-            </q-btn>
-          </q-bar>
-
-          <q-card-section>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum repellendus sit
-            voluptate voluptas eveniet porro. Rerum blanditiis perferendis totam, ea at omnis
-            vel numquam exercitationem aut, natus minima, porro labore.
-          </q-card-section>
-        </q-card>
-      </q-dialog>
     </div>
   </q-page>
 </template>
