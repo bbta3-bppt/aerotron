@@ -14,7 +14,7 @@ export default {
     const pinjaman = ref([])
     const barang = ref({})
     const pg = ref(2)
-    const dialogPinjaman = ref(false)
+
     const barangTertentu = computed({
       get() {
         return barang.value
@@ -51,7 +51,6 @@ export default {
     }
 
     return {
-      dialogPinjaman,
       barangTertentu,
       pinjaman,
       moment,
