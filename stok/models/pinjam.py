@@ -20,3 +20,12 @@ class Pinjam(models.Model):
 
     def __str__(self):
         return f"{self.barang.nama} dipinjam oleh {self.dipinjam.username}"
+
+    def save(self, *args, **kwargs):
+        barang = self.barang
+
+        if self.jumlah <= barang.jumlah:
+            barang.jumlah = barang.jumlah - self.jumlah
+            barang.save()
+
+        super(Pinjam, self).save(*args, **kwargs)
