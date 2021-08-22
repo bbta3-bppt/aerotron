@@ -39,10 +39,6 @@ export default {
       router.go(-1)
     }
 
-    const onPinjaman = () => {
-      dialogPinjaman.value = true
-    }
-
     const onMemuatPinajaman = async () => {
       const paramsId = route.params["id"]
 
@@ -55,8 +51,7 @@ export default {
       pinjaman,
       moment,
       onKembali,
-      onMemuatPinajaman,
-      onPinjaman
+      onMemuatPinajaman
     }
   }
 }
