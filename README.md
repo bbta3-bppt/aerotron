@@ -8,6 +8,9 @@ Pengembangan riset Aerotron ini bertujuan:
 * Untuk mendata semua  barang dan peralatan yang  berlabel BMN (Barang Milik  Negara) yang dibawah  tanggung jawab TROP
 * Mengelola inventaris TROP  sehingga adanya transparansi  dan terintegrasi dengan baik
 * Sebagai dasar untuk pemetaan  persediaan barang/stock  selanjutnya
+* Transformasi digital informasi jadwal pengujian
+* Memudahkan para pegawai maupun klien mengakses informasi jadwal pengujian
+* Menyampaikan informasi pengujian yang terbaru
 
 Aplikasi Aerotron terdiri dari sub aplikasi yaitu:
 * Jadwal perawatan
