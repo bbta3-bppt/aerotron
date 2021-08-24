@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'oten.apps.OtenConfig',
     'perawatan.apps.PerawatanConfig',
-    'stok.apps.StokConfig'
+    'stok.apps.StokConfig',
+    'pengujian.apps.PengujianConfig'
 ]
 
 MIDDLEWARE = [
