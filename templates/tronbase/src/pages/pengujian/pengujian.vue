@@ -36,7 +36,7 @@
 
         <q-item-section side>
           <div class="text-grey-8 q-gutter-xs">
-            <q-btn outline color="primary" label="Kunjungi" />
+            <q-btn outline color="primary" label="Kunjungi" @click="onRincianFasilitas(fas.id)" />
           </div>
         </q-item-section>
       </q-item>

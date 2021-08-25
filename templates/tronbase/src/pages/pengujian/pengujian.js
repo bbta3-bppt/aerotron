@@ -22,9 +22,14 @@ export default defineComponent({
       pg.value += 1
     }
 
+    const onRincianFasilitas = async (id) => {
+      await router.push({name: "RincianFasilitasPengujian", params: {id}})
+    }
+
     return {
       fasilitas,
-      onMuatLagi
+      onMuatLagi,
+      onRincianFasilitas
     }
   }
 })
