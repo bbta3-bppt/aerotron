@@ -4,6 +4,8 @@ import {createStore} from "vuex"
 import otentikasi from "./otentikasi"
 import stok from "./stok"
 import pinjaman from "./pinjaman"
+import pengujian from "./pengujian"
+import fasilitas from "./fasilitas"
 
 /*
  * If not building with SSR mode, you can
@@ -19,7 +21,9 @@ export default store(function (/* { ssrContext } */) {
     modules: {
       otentikasi,
       stok,
-      pinjaman
+      pinjaman,
+      pengujian,
+      fasilitas,
     },
 
     // enable strict mode (adds overhead!)
