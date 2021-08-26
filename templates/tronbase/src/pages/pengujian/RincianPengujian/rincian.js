@@ -1,20 +1,32 @@
 import {onMounted, ref} from "vue"
-import {useRoute} from "vue-router"
+import {useStore} from "vuex"
+import {useRouter} from "vue-router"
+import {getAllPengujian} from "src/services/pengujian"
+import {getAllPinjamanTertentu} from "src/services/pinjaman";
 
 export default {
   name: 'RincianPengujianPage',
   setup() {
-    const route = useRoute()
-    const title = ref("")
+    const store = useStore()
+    const router = useRouter()
+    const pengujian = ref("")
+    const selectedPengujian = ref(false)
+    const pg = ref(2)
 
-    onMounted(() => {
-      const paramsId = route.params["id"]
-
-      title.value = `Halaman Rincian Pengujian ${paramsId}`
+    onMounted(async () => {
+      await getAllPengujian(store, router, 1)
+      pengujian.value = store.getters["pengujian/pengujianGetter"]
     })
 
+    const onMemuatPengujian = async () => {
+      await getAllPengujian(store, router, pg.value)
+      pg.value += 1
+    }
+
     return {
-      title
+      pengujian,
+      selectedPengujian,
+      onMemuatPengujian
     }
   }
 }
