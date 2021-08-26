@@ -12,10 +12,10 @@ export const getAllPinjamanTertentu = async (store, router, page=1, id) => {
 
     const res = await st.dispatch("pinjaman/getAllPinjamanAction", {page: pg, id: i})
     store.commit("pinjaman/setAllPinjamanMutation", {
-      count: res.data["count"],
-      results: res.data["results"],
-      next: res.data["next"],
-      previous: res.data["previous"]
+      count: res.data["count"] ? res.data["count"] : 0,
+      results: res.data["results"] ? res.data["results"] : [],
+      next: res.data["next"] ? res.data["next"] : null,
+      previous: res.data["previous"] ? res.data["previous"] : null
     })
   }
 
