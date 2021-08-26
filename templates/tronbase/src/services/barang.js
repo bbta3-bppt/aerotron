@@ -14,10 +14,10 @@ export const getBarang = async (store, page=1, router) => {
 
     st.commit("stok/resetBarangMutation")
     st.commit("stok/setBarangMutation", {
-      count: payload["count"],
-      results: payload["results"],
-      next: payload["next"],
-      previous: payload["previous"]
+      count: payload["count"] ? payload["count"] : 0,
+      results: payload["results"] ? payload["results"] : [],
+      next: payload["next"] ? payload["next"] : null,
+      previous: payload["previous"] ? payload["previous"] : null
     })
   }
 
