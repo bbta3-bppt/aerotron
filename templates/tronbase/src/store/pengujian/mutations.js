@@ -11,3 +11,17 @@ export function setAllPengujianMutation(state, {count, results, next, previous})
 export function resetAllPengujianMutation(state) {
   state.pengujian = {count: 0, results: [], next: null, previous: null}
 }
+
+export function setAllPaketPengujianMutation(state, {count, results, next, previous}) {
+  state.paket.count = count
+  state.paket.next = next
+  state.paket.previous = previous
+
+  results.forEach(res => {
+    state.paket.results.push(res)
+  })
+}
+
+export function resetAllPaketPengujianMutation(state) {
+  state.paket = {count: 0, results: [], next: null, previous: null}
+}
