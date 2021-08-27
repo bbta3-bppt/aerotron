@@ -9,7 +9,11 @@
         </q-item-section>
       </q-item>
 
-      <q-item v-for="fas in fasilitas.results" :key="fas.id" v-else>
+      <q-item v-for="fas in fasilitas.results"
+              :key="fas.id"
+              v-else
+              class="q-separator-item-list"
+      >
         <q-item-section thumbnail>
           <img
             :src="fas.gambar"
