@@ -92,8 +92,6 @@
         <q-list bordered class="rounded-borders">
           <q-item-label header>Riwayat Peminjaman</q-item-label>
 
-          <q-separator spaced />
-
           <q-item v-if="pinjaman.count === 0">
             <q-item-section>
               <q-item-section>
@@ -102,7 +100,12 @@
             </q-item-section>
           </q-item>
 
-          <q-item clickable v-ripple v-for="pj in pinjaman.results" :key="pj.id" v-else>
+          <q-item clickable v-ripple
+                  v-for="pj in pinjaman.results"
+                  :key="pj.id"
+                  v-else
+                  class="q-separator-item-list"
+          >
             <q-item-section>
               <q-item-label lines="1">
                 Dipinjam oleh <q-badge color="red">
