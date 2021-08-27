@@ -1,11 +1,11 @@
 import {api} from "boot/axios"
 import {Cookies} from "quasar"
 
-export async function getPengujianAction (ctx, {page}) {
+export async function getPengujianAction (ctx, {page, id}) {
   const header = Cookies.get("_msk")
 
   return await api.get(
-    `pengujian/api/daftar/`,
+    `pengujian/api/daftar/${id}`,
     {
       headers: { authorization: `Bearer ${header}` },
       params: {
