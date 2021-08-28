@@ -8,6 +8,10 @@ export function setAllPengujianMutation(state, {count, results, next, previous})
   })
 }
 
+export function setPengujianTertentuMutation(state, payload) {
+  state.pengujian_tertentu = payload
+}
+
 export function resetAllPengujianMutation(state) {
   state.pengujian = {count: 0, results: [], next: null, previous: null}
 }
