@@ -1,3 +1,4 @@
+import moment from "moment"
 import {onMounted, ref} from "vue"
 import {useStore} from "vuex"
 import {useRouter, useRoute} from "vue-router"
@@ -12,11 +13,13 @@ export default {
     const pengujian = ref("")
     const paket = ref("")
     const selectedPengujian = ref(false)
+    const selectedRincianPengujian = ref(null)
     const idSelectedPengujian = ref(0)
     const pg = ref(2)
     const pgPaket = ref(2)
 
     onMounted(async () => {
+      moment.locale("id")
       await getAllPengujian(store, router, 1, route.params["id"])
       pengujian.value = store.getters["pengujian/pengujianGetter"]
     })
@@ -31,11 +34,20 @@ export default {
       paket.value = store.getters["pengujian/paketPengujianGetter"]
       selectedPengujian.value = true
       idSelectedPengujian.value = id
+
+      const selected_pengujian = store.getters["pengujian/pengujianGetter"]
+        .results
+        .filter(uji => uji.id === id)
+      store.commit("pengujian/setPengujianTertentuMutation", selected_pengujian[0])
+
+      selectedRincianPengujian.value = store.getters["pengujian/pengujianTertentuGetter"]
     }
 
     return {
+      moment,
       pengujian,
       selectedPengujian,
+      selectedRincianPengujian,
       idSelectedPengujian,
       paket,
       pgPaket,
