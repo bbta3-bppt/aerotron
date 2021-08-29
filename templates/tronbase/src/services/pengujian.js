@@ -61,7 +61,7 @@ export const getAllPaketPengujian = async (store, router, page=1, id) => {
 
     if (err.response) {
       await refreshToken(st, null, rt)
-      await getAllPengujian(st, rt, pg, i)
+      await getAllPaketPengujian(st, rt, pg, i)
     }
 
     else {

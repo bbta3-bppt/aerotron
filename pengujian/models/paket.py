@@ -12,7 +12,7 @@ class PaketPengujian(models.Model):
 
     class Meta:
         verbose_name_plural = "Paket Pengujian"
-        ordering = ["-dibuat"]
+        ordering = ["dibuat"]
         indexes = [
             models.Index(fields=["nama"])
         ]
