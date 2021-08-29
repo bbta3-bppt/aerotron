@@ -34,6 +34,7 @@ export default {
       paket.value = store.getters["pengujian/paketPengujianGetter"]
       selectedPengujian.value = true
       idSelectedPengujian.value = id
+      pgPaket.value = 2
 
       const selected_pengujian = store.getters["pengujian/pengujianGetter"]
         .results
@@ -41,6 +42,11 @@ export default {
       store.commit("pengujian/setPengujianTertentuMutation", selected_pengujian[0])
 
       selectedRincianPengujian.value = store.getters["pengujian/pengujianTertentuGetter"]
+    }
+
+    const onMemuatPaket = async () => {
+      await getAllPaketPengujian(store, router, pgPaket.value, idSelectedPengujian.value)
+      pgPaket.value += 1
     }
 
     return {
@@ -52,7 +58,8 @@ export default {
       paket,
       pgPaket,
       onMemuatPengujian,
-      onRincianPengujian
+      onRincianPengujian,
+      onMemuatPaket
     }
   }
 }
