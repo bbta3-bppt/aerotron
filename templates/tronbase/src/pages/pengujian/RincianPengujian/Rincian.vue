@@ -57,7 +57,9 @@
               <div class="text-overline text-orange-9">Durasi Pengujian</div>
               <q-linear-progress stripe color="orange-9" size="25px" :value="selectedRincianPengujian.persentase_durasi / 100">
                 <div class="absolute-full flex flex-center">
-                  <q-badge color="white" text-color="black" :label="Math.round(selectedRincianPengujian.persentase_durasi, 2)" />
+                  <q-badge color="white" text-color="black"
+                           :label="`${Math.round(selectedRincianPengujian.persentase_durasi, 2)} %`"
+                  />
                 </div>
               </q-linear-progress>
               <div class="text-h5 q-mt-sm q-mb-xs">{{ selectedRincianPengujian.nama_fasilitas }}</div>
@@ -115,7 +117,7 @@
             <q-card-section>
               <q-linear-progress stripe size="25px" :value="pkt.persentase / 100">
                 <div class="absolute-full flex flex-center">
-                  <q-badge color="white" text-color="black" :label="pkt.persentase" />
+                  <q-badge color="white" text-color="black" :label="`${pkt.persentase} %`" />
                 </div>
               </q-linear-progress>
             </q-card-section>
