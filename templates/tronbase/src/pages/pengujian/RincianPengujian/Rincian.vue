@@ -120,6 +120,14 @@
               </q-linear-progress>
             </q-card-section>
           </q-card>
+
+          <div class="q-my-md text-right">
+            <q-btn color="green"
+                   label="Muat Lagi"
+                   v-if="paket.next"
+                   @click="onMemuatPaket"
+            />
+          </div>
         </div>
       </div>
     </div>
