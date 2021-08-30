@@ -29,7 +29,7 @@ class BarangView(generics.ListCreateAPIView):
         else:
             barang = Barang.objects.all()
 
-        return barang
+        return barang.order_by("lokasi", "nama")
 
 
 class SelectedBarangView(generics.RetrieveUpdateDestroyAPIView):
