@@ -11,12 +11,12 @@
     "test": "echo \"No test specified\" && exit 0"
   },
   "dependencies": {
-    "@quasar/extras": "^1.10.11",
+    "@quasar/extras": "^1.10.12",
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "dotenv": "^10.0.0",
     "moment": "^2.29.1",
-    "quasar": "^2.0.3",
+    "quasar": "^2.0.4",
     "vuex": "^4.0.1"
   },
   "devDependencies": {

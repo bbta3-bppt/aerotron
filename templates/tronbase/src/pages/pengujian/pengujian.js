@@ -1,7 +1,8 @@
+import {useStore} from "vuex"
+import {openURL} from "quasar"
+import {useRouter} from "vue-router"
 import {defineComponent, onMounted, ref} from "vue"
 import {getAllFasilitas} from "src/services/fasilitas"
-import {useStore} from "vuex"
-import {useRouter} from "vue-router"
 
 
 export default defineComponent({
@@ -26,9 +27,14 @@ export default defineComponent({
       await router.push({name: "RincianFasilitasPengujian", params: {id}})
     }
 
+    const goToExternal = (url) => {
+      openURL(url, null, { noopener: true, noreferrer: true })
+    }
+
     return {
       fasilitas,
       onMuatLagi,
+      goToExternal,
       onRincianFasilitas
     }
   }

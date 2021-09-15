@@ -46,11 +46,16 @@
       </q-item>
     </q-list>
 
-    <q-btn outline color="green" label="Muat Lagi"
-           class="q-my-md"
-           @click="onMuatLagi"
-           v-if="fasilitas.next"
-    />
+    <div class="q-gutter-sm q-my-md">
+      <q-btn unelevated
+             color="green" label="Cek Jadwal"
+             @click="goToExternal('https://docs.google.com/spreadsheets/d/1hfnQX4E-VPEcVPzkeE-rLn_Vc_4kQZiNIpqT78GnTHk/edit?usp=sharing')"
+      />
+      <q-btn outline color="green" label="Muat Lagi"
+             @click="onMuatLagi"
+             v-if="fasilitas.next"
+      />
+    </div>
   </q-page>
 </template>
 
