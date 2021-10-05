@@ -16,7 +16,7 @@
           <th colspan="6">
             <div class="row no-wrap items-center">
               <q-icon name="eva-archive-outline" color="white" size="33px"/>
-              <div class="text-h4 text-white q-ml-sm text-uppercase">Stok Barang</div>
+              <div class="text-h4 text-white q-ml-sm text-uppercase">Inventaris TROP</div>
             </div>
           </th>
         </tr>
