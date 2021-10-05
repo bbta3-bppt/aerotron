@@ -19,8 +19,8 @@ const linksList = [
     link: '/operasi'
   },
   {
-    title: 'Stok',
-    caption: 'Stok Peralatan',
+    title: 'Inventaris TROP',
+    caption: 'Penyimpanan dan Peminjaman Alat',
     icon: 'bi-cart4',
     link: '/stok'
   },
