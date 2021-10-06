@@ -24,6 +24,11 @@
         </q-card>
       </div>
     </div>
+    <div class="q-pa-sm text-center text-h7">HUBUNGI KAMI</div>
+    <div class="text-body1 text-grey-8 text-center">Apabila terdapat keluhan maupun umpan balik terkait kondisi fasilitas silahkan sampaikan kepada kami melalui tautan pada tombol dibawah:</div>
+    <div class="q-pa-sm text-center">
+    <q-btn style="text-center" color="dark" label="Beritahu kami" icon="forum" type="a" href="https://forms.gle/vGuMvPK9NLLBFrty5" target="_blank"/>
+    </div>
   </q-page>
 </template>
 
