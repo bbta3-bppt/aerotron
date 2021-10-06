@@ -21,10 +21,10 @@
           </th>
         </tr>
         <tr class="text-white text-uppercase">
-          <th class="text-center">Lokasi Barang</th>
-          <th class="text-left">Nama Barang</th>
+          <th class="text-center">Lokasi Peralatan</th>
+          <th class="text-left">Nama Peralatan</th>
           <th class="text-center">BMN</th>
-          <th class="text-center">Jumlah Barang</th>
+          <th class="text-center">Jumlah Peralatan</th>
           <th class="text-center">Kategori</th>
           <th class="text-center">Opsi</th>
         </tr>
