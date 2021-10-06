@@ -119,7 +119,7 @@ const dokumentasiILST = [
     rinciankegiatan: "DISMANTLING EXISTING AIR COOLER (CENTRIFUGAL COMPRESSOR)",
     tanggal: "1 & 3 September 2021",
     pelaksana: "Pelaksana: PT. Semaju, Tabrani, M. Very N.",
-    keterangan: "Status: Air Cooler lama telah terlepas"
+    keterangan: "Status: Air Cooler lama telah terlepas, ditemukan housing dari air cooler kotor"
   },
   {
     gambar: "https://firebasestorage.googleapis.com/v0/b/aerotron-8f312.appspot.com/o/Dokumentasi%2FdokumentasiILST%2FCleaning%20Air%20Cooler%20Door_4%20sept%202021.jpeg?alt=media&token=83e1d452-0a95-486e-8836-40ac8caaeca1",
@@ -148,21 +148,21 @@ const dokumentasiILST = [
     rinciankegiatan: "DISMANTLING DIFFUSER",
     tanggal: "9 September 2021",
     pelaksana: "Pelaksana: PT. Semaju, Asep D. H., Tabrani, Dwie V. D.",
-    keterangan: "Status: OK"
+    keterangan: "Status: Diffuser stage 2 & 3 scratch"
   },
   {
     gambar: "https://firebasestorage.googleapis.com/v0/b/aerotron-8f312.appspot.com/o/Dokumentasi%2FdokumentasiILST%2F15%20Sept%202021_Impeller%20pinion%20stage%201%20dan%202.jpg?alt=media&token=1c0e719a-45f0-474c-bda6-86baf1bf0090",
-    rinciankegiatan: "DISMANTLING IMPELLER & PINION STAGE 1,2",
+    rinciankegiatan: "DISMANTLING IMPELLER STAGE 1,2",
     tanggal: "14-15 September 2021",
     pelaksana: "Pelaksana: PT. Semaju, Asep D. H., Tabrani, Dwie V. D.",
-    keterangan: "Status: OK"
+    keterangan: "Status: Impeller stage 2 crashed"
   },
   {
     gambar: "https://firebasestorage.googleapis.com/v0/b/aerotron-8f312.appspot.com/o/Dokumentasi%2FdokumentasiILST%2F22%20Sept%202021_pinion%20stage%203.jpg?alt=media&token=a675e8bf-8292-41d1-b8a1-a999452e0728",
-    rinciankegiatan: "DISMANTLING IMPELLER & PINION STAGE 3",
+    rinciankegiatan: "DISMANTLING IMPELLER 3",
     tanggal: "16-22 September 2021",
     pelaksana: "Pelaksana: PT. Semaju, Asep D. H., Tabrani, Dwie V. D.",
-    keterangan: "Status: OK"
+    keterangan: "Status: Impeller stage 3 heavy crashed"
   },
   {
     gambar: "https://firebasestorage.googleapis.com/v0/b/aerotron-8f312.appspot.com/o/Dokumentasi%2FdokumentasiILST%2F14%20Sept%202021_Empty%20Box_aerotron.jpeg?alt=media&token=15d27f34-cf21-4e36-84ea-89c2db2b0da5",
@@ -230,5 +230,4 @@ export default defineComponent({
       dokumentasiILST
     }
   }
-
 })
